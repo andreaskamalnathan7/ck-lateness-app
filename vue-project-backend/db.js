@@ -1,4 +1,4 @@
-import { createPool } from 'mysql2/promise'; // Must include /promise
+import { createPool } from 'mysql2/promise'; 
 import 'dotenv/config';
 
 const db = createPool({
