@@ -4,10 +4,10 @@ A full-stack mobile application for tracking student lateness using QR Code scan
 
 ## Prerequisites
 Before running this project, ensure you have the following installed on your PC:
-1. **Node.js** (v18 or higher)
-2. **MySQL**
-3. **Android Studio** (For mobile testing)
-4. **Git**
+1. Node.js (v18 or higher)
+2. MySQL
+3. Android Studio (For mobile testing)
+4. Git
 
 ## Project Setup
 **1. Clone the Repository**
