@@ -12,61 +12,70 @@ Before running this project, ensure you have the following installed on your PC:
 ## Project Setup
 **1. Clone the Repository**
 
-git clone <your-github-repo-url>
-cd <project-folder-name>
+    git clone <your-github-repo-url>
+    cd <project-folder-name>
 
 **2. Backend Setup (Server)**
+
 The backend handles authentication and database storage.
 - Navigate to project root (where server.js is)
-npm install
+
+      npm install
 
 - Setup Environment Variables
-- Create a .env file and add your credentials:
-PORT=3000
-DB_HOST=your_host
-DB_USER=your_user
-DB_PASSWORD=your_password
-DB_NAME=your_database
+
+  Create a .env file and add your credentials:
+
+      PORT=3000
+      DB_HOST=your_host
+      DB_USER=your_user
+      DB_PASSWORD=your_password
+      DB_NAME=your_database
 
 **3. Database Initialization**
 
 _Run the following SQL in your MySQL server to prepare the tables_
 
-CREATE TABLE students (
-    student_id VARCHAR(50) PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    password VARCHAR(255),
-    class VARCHAR(20),
-    face_descriptor TEXT
-);
-
-CREATE TABLE lateness_records (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id VARCHAR(50),
-    arrival_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    reason TEXT,
-    minutes_late INT,
-    FOREIGN KEY (student_id) REFERENCES students(student_id)
-);
+    CREATE TABLE students (
+        student_id VARCHAR(50) PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100),
+        password VARCHAR(255),
+        class VARCHAR(20),
+        face_descriptor TEXT
+    );
+    
+    CREATE TABLE lateness_records (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        student_id VARCHAR(50),
+        arrival_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+        reason TEXT,
+        minutes_late INT,
+        FOREIGN KEY (student_id) REFERENCES students(student_id)
+    );
 
 **4. Frontend Setup (Vue.js)**
 - Install dependencies
-npm install
+
+      npm install
 
 - Configure API
-- Open src/config.js and update API_BASE_URL to your Local IP or Railway URL
+- Open src/config.js and update API_BASE_URL to your Local IP or server URL
 
 ## Running on Mobile (Capacitor)
 To see the app on your phone or emulator:
-**1. Build the web app**
-npm run build
 
-**2. Sync files to the Android project**
-npx cap sync
+1. Build the web app**
 
-**3. Open in Android Studio**
-npx cap open android
+        npm run build
+
+2. Sync files to the Android project**
+
+        npx cap sync
+
+3. Open in Android Studio**
+
+        npx cap open android
 
 ## Installed Libraries
 Library
@@ -79,3 +88,4 @@ Library
 
 ## Important Note
 The Face Recognition models must be placed in public/models. When you run npm run build, these are automatically moved to the dist folder for the server to serve.
+
