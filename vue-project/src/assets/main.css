@@ -1,0 +1,9 @@
+/* Standardizing appearance across Android and Chrome */
+button, 
+[type='button'], 
+[type='reset'], 
+[type='submit'] {
+  -webkit-appearance: none !important; /* Forces the removal of native styling */
+  -moz-appearance: none !important;
+  appearance: none !important;        /* Standard property for compatibility */
+}
