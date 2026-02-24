@@ -25,7 +25,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// --- API ROUTES ---
 
 app.post('/api/register', async (req, res) => {
   try {
@@ -60,7 +59,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Route to save student face data
 app.post('/api/enroll-face', async (req, res) => {
   try {
     const { student_id, face_descriptor } = req.body;
@@ -115,7 +113,6 @@ app.get('/api/admin/records', async (req, res) => {
 
 app.use('/models', express.static(join(__dirname, 'dist/models'), {
     setHeaders: (res, path) => {
-        // Forces the server to treat shards as binary data (so it can be downloaded and read by face-api.js) instead of trying to parse them as text)
         if (path.includes('-shard')) {
             res.set('Content-Type', 'application/octet-stream');
         }
