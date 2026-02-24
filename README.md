@@ -69,13 +69,13 @@ npx cap sync
 npx cap open android
 
 ## Installed Libraries
-Library                              Purpose
-express & mysql2                     Powers the API and connects to our database.
-face-api.js                          The AI engine for Face Recognition & Biometric detection.
-@capacitor/preferences               Equivalent to "TinyDB" - stores user tokens and sessions.
-@capacitor-mlkit/barcode-scanning    High-speed QR Code scanning.
-@capacitor/geolocation               Geofencing to ensure students scan only at school.
-bcrypt                               Secures student passwords via hashing.
+Library
+- express & mysql2 : Powers the API and connects to our database.
+- face-api.js : The AI engine for Face Recognition & Biometric detection.
+- @capacitor/preferences : Equivalent to "TinyDB" - stores user tokens and sessions.
+- @capacitor-mlkit/barcode-scanning : High-speed QR Code scanning.
+- @capacitor/geolocation : Geofencing to ensure students scan only at school.
+- bcrypt : Secures student passwords via hashing.
 
 ## Important Note
 The Face Recognition models must be placed in public/models. When you run npm run build, these are automatically moved to the dist folder for the server to serve.
