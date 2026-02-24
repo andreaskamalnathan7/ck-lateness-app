@@ -81,9 +81,9 @@ To see the app on your phone or emulator:
 Library
 - express & mysql2 : Powers the API and connects to our database.
 - face-api.js : The AI engine for Face Recognition & Biometric detection.
-- @capacitor/preferences : Equivalent to "TinyDB" - stores user tokens and sessions.
+- @capacitor/preferences : to stores user tokens and sessions (future work: to test to school backend server).
 - @capacitor-mlkit/barcode-scanning : High-speed QR Code scanning.
-- @capacitor/geolocation : Geofencing to ensure students scan only at school.
+- @capacitor/geolocation : Geofencing to ensure students scan only at school (future work).
 - bcrypt : Secures student passwords via hashing.
 
 ## Important Note
