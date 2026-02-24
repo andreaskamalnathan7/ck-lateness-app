@@ -41,7 +41,7 @@ const loadModels = async () => {
   const MODEL_URL = `${API_BASE_URL}/models`.replace(/\/$/, ""); 
   try {
     statusMessage.value = 'Connecting to AI Server...';
-    // Load models one by one
+    // Load models one by one to ensure all models received/loaded
     await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
     statusMessage.value = 'Detector Loaded...';
     await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
@@ -76,7 +76,7 @@ const handleDetection = async () => {
   const displaySize = { width: video.value.videoWidth, height: video.value.videoHeight }
   faceapi.matchDimensions(canvas.value, displaySize)
 
-  // Parse saved data safely
+  // Parse saved data safely... 
   const savedDescriptor = store.user.face_descriptor 
     ? new Float32Array(Object.values(JSON.parse(store.user.face_descriptor))) 
     : null;
@@ -93,8 +93,8 @@ const handleDetection = async () => {
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
     const ctx = canvas.value.getContext('2d');
     ctx.clearRect(0, 0, canvas.value.width, canvas.value.height); // Clear previous frames
-    faceapi.draw.drawDetections(canvas.value, resizedDetections); // Draw the bounding box square
-    faceapi.draw.drawFaceLandmarks(canvas.value, resizedDetections); // Draw the landmarks
+    faceapi.draw.drawDetections(canvas.value, resizedDetections); // Draw the bounding box square over the face
+    faceapi.draw.drawFaceLandmarks(canvas.value, resizedDetections); // Draw the landmarks of the face
 
     if (detections.length > 0) {
       if (props.mode === 'enroll') {
