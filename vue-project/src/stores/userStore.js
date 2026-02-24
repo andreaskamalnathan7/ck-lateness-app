@@ -30,7 +30,7 @@ export const useUserStore = defineStore('user', {
     },
 
     async saveUser(userData) {
-      // This will include face_descriptor if it comes from the server login
+      // include face_descriptor, if it comes from the server login..
       this.user = userData 
       this.isRegistered = true
       await Preferences.set({
@@ -39,7 +39,7 @@ export const useUserStore = defineStore('user', {
       })
     },
 
-    //Update only face data without full login
+    //update only face data without full login..
     async updateFaceDescriptor(descriptorString) {
       this.user.face_descriptor = descriptorString;
       await Preferences.set({
@@ -54,7 +54,7 @@ export const useUserStore = defineStore('user', {
       this.user = { 
         email: '', name: '', student_id: '', ship: '', 
         level: '', grade: null, class_group: '', 
-        face_descriptor: null // RESET The face descriptor on logout as well
+        face_descriptor: null // reset The face descriptor on logout too
       }
       this.history = []
     },
