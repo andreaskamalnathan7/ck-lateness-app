@@ -22,7 +22,6 @@
   align-items: center;
   opacity: 0.6;
   transition: opacity 0.2s ease;
-  /* Standard property for mobile touch compatibility */
   appearance: none;
   -webkit-appearance: none;
 }
