@@ -110,12 +110,8 @@ const handleEnrollment = async (descriptor) => {
 
     if (response.ok) {
       alert("Success! Your face is now registered.");
-      // Update the local store so the 'Enrolled' badge shows up immediately
-      // Convert the descriptor to a string to match database format
       store.user.face_descriptor = JSON.stringify(descriptor);
-      await store.updateFaceDescriptor(JSON.stringify(descriptor));
-      // Optional: Persist to Preferences if the store doesn't do it automatically
-      // await store.saveToPreferences(); 
+      await store.updateFaceDescriptor(JSON.stringify(descriptor)); 
     } else {
       const err = await response.json();
       alert("Enrollment failed: " + (err.error || "Server error"));
